@@ -1,4 +1,5 @@
 (function () {
+  return;
   const KEY = 'maria-cookie-consent';
   const VERSION = '1';
   let injected = false;
