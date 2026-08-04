@@ -1,0 +1,457 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../../layouts/Layout.astro';
+import SiteHeader from '../../components/SiteHeader.astro';
+import { siteConfig } from '../../config/site';
+import nextpointImage from '../../assets/images/nextpoint.webp';
+import nextpointTranscriptsImage from '../../assets/images/nextpoint-transcripts.webp';
+
+const highlights = [
+    { label: 'Client', value: 'Startup project' },
+    { label: 'Completed', value: '2026' },
+    { label: 'Role', value: 'UX Lead · UX Researcher · Product Designer' },
+];
+
+const outcomes = [
+	'Identified major pain points through qualitative and quantitative research.',
+    'Analysed pricing data from multiple supermarkets.',
+    'Demonstrated that users could save significantly through smarter planning.',
+    'Designed a complete mobile experience from research to high-fidelity prototypes.',
+    'Led the UX process within a multidisciplinary team.',
+];
+
+const caseStudyUrl = new URL('/work/sparly', siteConfig.siteUrl).toString();
+const caseStudySchema = [
+	{
+		'@context': 'https://schema.org',
+		'@type': 'BreadcrumbList',
+		itemListElement: [
+			{
+				'@type': 'ListItem',
+				position: 1,
+				name: 'Home',
+				item: siteConfig.siteUrl,
+			},
+			{
+				'@type': 'ListItem',
+				position: 2,
+				name: 'Work',
+				item: new URL('/work', siteConfig.siteUrl).toString(),
+			},
+			{
+				'@type': 'ListItem',
+				position: 3,
+				name: 'Smart cart planner app',
+				item: caseStudyUrl,
+			},
+		],
+	},
+	{
+		'@context': 'https://schema.org',
+		'@type': 'CreativeWork',
+		name: 'sparly',
+		headline: 'Smart cart planner app',
+		description:
+			'',
+		url: caseStudyUrl,
+		author: {
+			'@type': 'Person',
+			name: siteConfig.authorName,
+		},
+		isPartOf: {
+			'@type': 'WebSite',
+			name: siteConfig.name,
+			url: siteConfig.siteUrl,
+		},
+		inLanguage: siteConfig.locale,
+	},
+];
+---
+
+<Layout
+	title="Nextpoint Case Study | Astro Theme for UI/UX Designer Portfolios"
+	description="Sample Nextpoint case study from the Maria Astro theme for UI/UX designer portfolios, built to showcase product design decisions and visual storytelling."
+	ogType="article"
+	ogImageAlt="Preview of the Nextpoint sample case study page in the Maria Astro theme"
+	schema={caseStudySchema}
+>
+	<a class="skip-link" href="#main-content">Skip to content</a>
+
+	<div class="case-page">
+		<SiteHeader />
+
+		<main id="main-content">
+			<section class="case-hero">
+				<p class="eyebrow">
+					<a class="breadcrumb-link" href="/work">Case Study</a>
+					<span class="breadcrumb-separator" aria-hidden="true">/</span>
+					<span>Sparly</span>
+				</p>
+				<h1 class="display-title">Designing a smart grocery planning platform that helps shoppers save money while reducing the time and effort spent comparing prices.</h1>
+				<div class="hero-subgrid">
+					<p class="hero-text">
+						Sparly was developed as a startup concept designed to simplify grocery shopping by combining price comparison, route optimisation, personalised recommendations, and location-based insights into a single experience. The goal was to help people spend less time searching for deals and more time making informed purchasing decisions.
+					</p>
+				</div>
+			</section>
+
+			<section class="meta-strip" id="overview">
+				{highlights.map((item) => (
+					<div class="meta-item">
+						<p class="meta-label">{item.label}</p>
+						<p class="meta-value">{item.value}</p>
+					</div>
+				))}
+			</section>
+
+			<section class="lead-image-section">
+				<Image
+					class="lead-image"
+					src={nextpointImage}
+					alt="Nextpoint dashboard showing transcript metrics, AI summary, and recent transcript activity"
+					decoding="async"
+					widths={[720, 1080, 1440]}
+					sizes="(max-width: 78rem) 100vw, 78rem"
+				/>
+			</section>
+
+			<section class="summary-section">
+				<p class="section-kicker">Overview</p>
+				<h2>A mobile experience designed to make grocery shopping faster, cheaper, and more efficient.</h2>
+				<div class="summary-main">
+					<p>
+						Modern shoppers face an overwhelming number of choices across multiple supermarkets, each offering different prices, discounts, and promotional campaigns. Comparing prices across several platforms requires considerable time and effort, and many users ultimately miss opportunities to save money.
+
+Our team set out to explore whether technology could simplify this process by collecting information from multiple stores, analysing price variations, and generating the most efficient shopping route for users.
+					</p>
+					<p>
+						As the UX lead, I was responsible for defining the UX strategy, coordinating design activities, conducting competitor analysis, developing the information architecture, and overseeing the creation of the final interface.
+					</p>
+					<p class="summary-meta">
+						<strong>Focus:</strong> Price comparison, route optimisation, personalisation, and decision support.
+					</p>
+					<p class="summary-meta">
+						<strong>Scope:</strong> User research, market analysis, interaction design, information architecture, wireframing, branding, and interface design.
+					</p>
+				</div>
+			</section>
+
+			<section class="editorial-section editorial-section-no-divider" id="process">
+				<div class="section-rail">
+					<p class="section-kicker">What I Did</p>
+				</div>
+				<div class="story-block">
+					<p>
+						I started by helping define the project's scope, research strategy, and overall direction. Our team conducted interviews, field studies, market analysis, competitor reviews, and supermarket price comparisons to better understand users' behaviours and frustrations.
+					</p>
+					<p>
+						What stood out most was that people cared more about convenience than finding the absolute lowest price. Users wanted to save money, but they didn't want to spend additional time comparing offers across multiple stores.
+					</p>
+					<p>
+						My responsibility was to transform these findings into a clearer and more intuitive experience while leading the UX work across the project.
+					</p>
+				</div>
+			</section>
+
+			<section class="supporting-image-section">
+				<Image
+					class="supporting-image"
+					src={nextpointTranscriptsImage}
+					alt="Nextpoint transcripts view showing transcript summaries and related actions"
+					loading="lazy"
+					decoding="async"
+					widths={[720, 1080, 1440]}
+					sizes="(max-width: 78rem) 100vw, 78rem"
+				/>
+			</section>
+
+			<section class="editorial-section">
+				<div class="section-rail">
+					<p class="section-kicker">Design Decisions</p>
+				</div>
+				<div class="story-block">
+					<p>
+						Price comparison tools can quickly become overwhelming. Most existing solutions simply present users with more information, more promotions, and more choices.
+					</p>
+					<p>
+						Instead of creating another catalogue of discounts, we focused on reducing effort. The experience was designed to help users create shopping lists, compare prices, discover offers, and generate efficient routes with as little friction as possible.
+					</p>
+					<p>
+						I also contributed to the creation of the visual identity, ensuring the product felt approachable, supportive, and easy to use.
+					</p>
+				</div>
+			</section>
+
+			<section class="editorial-section" id="outcome">
+				<div class="section-rail">
+					<p class="section-kicker">Outcome</p>
+				</div>
+				<div class="story-block">
+					<ul class="outcome-list">
+						{outcomes.map((item) => <li>{item}</li>)}
+					</ul>
+					<p class="closing-text">
+						This project was intentionally collaborative, but the experience allowed me to strengthen my research, leadership, systems thinking, and interface design skills while working on a product with real-world potential.
+					</p>
+				</div>
+			</section>
+		<div class="text-center mt-16"><a
+            
+                href="https://www.figma.com/proto/cpH1SskQupsOjVmC5J2kv1/Final-Project?node-id=11743-7456"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-block bg-white !text-black font-semibold px-8 py-4 rounded-full hover:opacity-80 transition"
+            >
+                View Full Case Study on Figma →
+            </a>
+        </div>
+		</main>
+	</div>
+</Layout>
+
+<style>
+	.case-page {
+		position: relative;
+		width: min(calc(100% - 3rem), 78rem);
+		margin: 0 auto;
+		padding: 1.25rem 0 5rem;
+	}
+
+	.eyebrow,
+	.meta-label,
+	.section-kicker {
+		font-family: var(--font-mono);
+		font-size: 0.82rem;
+		font-weight: 600;
+		letter-spacing: 0.08em;
+		line-height: 1.4;
+		text-transform: uppercase;
+	}
+
+	.eyebrow a {
+		display: inline-flex;
+		align-items: center;
+		padding: 0.1rem 0;
+		color: var(--foreground);
+		text-decoration: none;
+		transition: opacity 120ms ease;
+	}
+
+	.eyebrow a:hover,
+	.eyebrow a:focus-visible {
+		opacity: 0.68;
+	}
+
+	.case-hero {
+		padding: 6rem 0 4rem;
+	}
+
+	.eyebrow,
+	.meta-label,
+	.section-kicker {
+		margin: 0;
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 0.55rem;
+		margin-bottom: 1.1rem;
+		color: var(--muted-foreground);
+		font-style: normal;
+	}
+
+	.breadcrumb-link {
+		font-weight: 600;
+	}
+
+	.breadcrumb-separator {
+		color: var(--muted-foreground);
+	}
+
+	h1,
+	h2 {
+		margin: 0;
+		font-weight: 800;
+		letter-spacing: -0.05em;
+		color: var(--foreground);
+	}
+
+	.hero-subgrid {
+		display: grid;
+		grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
+		gap: 2rem;
+		margin-top: 1.75rem;
+	}
+
+	.hero-text,
+	.hero-note,
+	.summary-main p,
+	.summary-meta,
+	.story-block p,
+	.outcome-list li,
+	.closing-text {
+		font-size: 1.08rem;
+		line-height: 1.7;
+	}
+
+	.hero-text,
+	.hero-note,
+	.summary-main p,
+	.summary-meta,
+	.story-block p,
+	.closing-text {
+		margin: 0;
+	}
+
+	.hero-note,
+	.closing-text {
+		color: var(--muted-foreground);
+	}
+
+	.meta-strip {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 2rem;
+		padding: 1.5rem 0 0.5rem;
+		border-top: 1px solid var(--border);
+	}
+
+	.meta-item {
+		padding-top: 0.75rem;
+	}
+
+	.meta-value {
+		margin: 0.35rem 0 0;
+		font-size: 1.15rem;
+		font-weight: 700;
+	}
+
+	.lead-image-section {
+		padding: 2rem 0 4rem;
+	}
+
+	.lead-image {
+		width: 100%;
+		border: 1px solid var(--border);
+		border-radius: 1.5rem;
+		box-shadow: var(--shadow-large);
+	}
+
+	.supporting-image-section {
+		padding: 2rem 0 4rem;
+		border-bottom: 1px solid var(--border);
+	}
+
+	.supporting-image {
+		width: 100%;
+		border: 1px solid var(--border);
+		border-radius: 1.5rem;
+		box-shadow: var(--shadow-large);
+	}
+
+	.summary-section {
+		padding: 0 0 3rem;
+		border-bottom: 1px solid var(--border);
+	}
+
+	.summary-section h2 {
+		margin-top: 0.75rem;
+		font-size: clamp(2rem, 3vw, 3rem);
+		line-height: 1.04;
+	}
+
+	.summary-main {
+		display: grid;
+		gap: 1rem;
+		margin-top: 1.5rem;
+	}
+
+	.summary-side p {
+		color: var(--muted-foreground);
+	}
+
+	.summary-side strong {
+		color: var(--foreground);
+	}
+
+	.summary-meta {
+		color: var(--muted-foreground);
+	}
+
+	.summary-meta strong {
+		color: var(--foreground);
+	}
+
+	.editorial-section {
+		display: grid;
+		grid-template-columns: 16rem minmax(0, 1fr);
+		gap: 2rem;
+		padding: 2.5rem 0;
+		border-bottom: 1px solid var(--border);
+	}
+
+	#outcome {
+		border-bottom: 0;
+	}
+
+	.editorial-section-no-divider {
+		border-bottom: 0;
+		padding-bottom: 0;
+	}
+
+	.section-rail {
+		align-self: start;
+	}
+
+	.story-block {
+		display: grid;
+		gap: 1rem;
+		max-width: 52rem;
+		margin-top: 0;
+	}
+
+	.outcome-list {
+		margin: 0;
+		padding-left: 1.25rem;
+		list-style: disc;
+	}
+
+	.outcome-list li::marker {
+		color: var(--foreground);
+	}
+
+	.closing-text {
+		margin-top: 1.5rem;
+	}
+
+	@media (max-width: 980px) {
+		.hero-subgrid,
+		.meta-strip {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	@media (max-width: 720px) {
+		.case-page {
+			width: min(calc(100% - 1.5rem), 78rem);
+			padding-top: 1rem;
+		}
+
+		.editorial-section {
+			grid-template-columns: 1fr;
+		}
+
+		.case-hero {
+			padding: 4rem 0 3rem;
+		}
+
+		.hero-text,
+		.hero-note,
+		.summary-main p,
+		.summary-meta,
+		.story-block p,
+		.outcome-list li,
+		.closing-text {
+			font-size: 1.05rem;
+		}
+	}
+</style>

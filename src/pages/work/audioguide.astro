@@ -3,24 +3,24 @@ import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
 import { siteConfig } from '../../config/site';
-import nextpointImage from '../../assets/images/nextpoint.webp';
-import nextpointTranscriptsImage from '../../assets/images/nextpoint-transcripts.webp';
+import nextpointImage from '../../assets/images/audioguide1.png';
+import nextpointTranscriptsImage from '../../assets/images/audioguide1.png';
 
 const highlights = [
-    { label: 'Client', value: 'Personal project / Interview assignment' },
-    { label: 'Completed', value: '2022' },
-    { label: 'Role', value: 'UI Designer' },
+    { label: 'Client', value: 'Academic research project' },
+    { label: 'Completed', value: '2026' },
+    { label: 'Role', value: 'UX Researcher · UX/UI Designer' },
 ];
 
 const outcomes = [
-	'Created an engaging interface tailored specifically for children aged eight to twelve.',
-    'Simplified financial concepts through visual progress indicators and educational content.',
-    'Established a complete design system, including colours, typography, icons, and reusable components.',
-    'Combined goal tracking, transaction history, rewards, and learning resources within a single experience.',
-    'Delivered an interactive prototype that balances education with playful interaction.',
+	'Identified the major limitations of existing museum audio guides through research and observation.',
+    'Designed a context-aware system that delivers audio content automatically based on location.',
+    'Created a seamless and hands-free visitor experience supported by mobile devices and BLE technology.',
+    'Combined personalisation, accessibility, storytelling, and navigation into a unified experience.',
+    'Established a scalable framework that can be adapted to different museum environments.',
 ];
 
-const caseStudyUrl = new URL('/work/nextpoint', siteConfig.siteUrl).toString();
+const caseStudyUrl = new URL('/work/audioguide', siteConfig.siteUrl).toString();
 const caseStudySchema = [
 	{
 		'@context': 'https://schema.org',
@@ -41,7 +41,7 @@ const caseStudySchema = [
 			{
 				'@type': 'ListItem',
 				position: 3,
-				name: 'POCKEYAPP Case Study',
+				name: 'Audio guide Case Study',
 				item: caseStudyUrl,
 			},
 		],
@@ -49,10 +49,10 @@ const caseStudySchema = [
 	{
 		'@context': 'https://schema.org',
 		'@type': 'CreativeWork',
-		name: 'POCKEYAPP Case Study',
-		headline: 'Sample Nextpoint case study for the Maria Astro portfolio theme',
+		name: 'Audio guide Case Study',
+		headline: 'case study for Audio guide',
 		description:
-			'A sample UI/UX case study page included in the Maria Astro theme for designer portfolios, focused on product design storytelling and structured project presentation.',
+			'',
 		url: caseStudyUrl,
 		author: {
 			'@type': 'Person',
@@ -85,12 +85,12 @@ const caseStudySchema = [
 				<p class="eyebrow">
 					<a class="breadcrumb-link" href="/work">Case Study</a>
 					<span class="breadcrumb-separator" aria-hidden="true">/</span>
-					<span>POCKEYAPP</span>
+					<span>Audio guide</span>
 				</p>
-				<h1 class="display-title">Designing a money management app that makes saving engaging, educational, and rewarding for children.</h1>
+				<h1 class="display-title">Designing a context-aware museum guide that makes cultural experiences more immersive, personal, and effortless.</h1>
 				<div class="hero-subgrid">
 					<p class="hero-text">
-						Pockey is a mobile application designed to help children learn the fundamentals of saving, budgeting, and delayed gratification through playful interactions, visual progress tracking, and educational content.
+						This project explores how contextual technologies can transform traditional museum audio guides into adaptive experiences that respond to a visitor's location, movement, interests, and behaviour in real time. Instead of forcing visitors to search for information manually, the experience allows stories and insights to appear naturally as they move through the museum.
 					</p>
 				</div>
 			</section>
@@ -117,19 +117,21 @@ const caseStudySchema = [
 
 			<section class="summary-section">
 				<p class="section-kicker">Overview</p>
-				<h2>A mobile experience that helps children develop healthy financial habits through goals, rewards, and interactive learning.</h2>
+				<h2>A mobile experience designed to deliver the right story at the right place and time.</h2>
 				<div class="summary-main">
 					<p>
-						The original objective was to create an engaging interface that could introduce financial literacy to children between the ages of eight and twelve. Rather than overwhelming users with numbers and transactions, the experience focuses on visual feedback, simple navigation, and a rewarding savings journey.
+						Museums have long relied on audio guides to help visitors discover exhibits and learn more about the stories behind them. However, most existing solutions still depend heavily on manual interactions, including entering exhibit numbers, scanning codes, and navigating lengthy menus.
+
+The goal of this project was to explore how context-aware technology could create a more seamless experience by automatically adapting content to each visitor's surroundings and behaviour.
 					</p>
 					<p>
-						My role was centred primarily on the visual design process, including interface design, colour selection, typography, iconography, component creation, and overall design consistency.
+						My role included conducting research, analysing existing solutions, developing the conceptual framework, and designing an adaptive mobile experience centred around accessibility, storytelling, and exploration.
 					</p>
 					<p class="summary-meta">
-						<strong>Focus:</strong> Gamification, visual hierarchy, accessibility, and engagement.
+						<strong>Focus:</strong> Context-aware experiences, accessibility, personalisation, and location-based interactions.
 					</p>
 					<p class="summary-meta">
-						<strong>Scope:</strong> UI design, wireframing, design system creation, and interaction design.
+						<strong>Scope:</strong> User research, competitive analysis, information architecture, interaction design, prototyping, and interface design.
 					</p>
 				</div>
 			</section>
@@ -140,13 +142,13 @@ const caseStudySchema = [
 				</div>
 				<div class="story-block">
 					<p>
-						I began by defining the application's information architecture and mapping the primary user journey, from creating a savings goal to tracking progress and earning rewards.
+						I started by exploring the museum experience from both the visitor's and the institution's perspective. The process involved literature reviews, observations, interviews, competitive analysis, and thematic analysis.
 					</p>
 					<p>
-						Once the structure was established, I explored visual directions that would resonate with younger users while remaining intuitive and easy to understand. The process included creating wireframes, developing reusable components, establishing typography and colour systems, and refining every screen to support a clear and playful experience.
+						Through this research, I identified several recurring challenges, including information overload, navigation difficulties, interrupted exploration, and the limitations of traditional audio guides.
 					</p>
 					<p>
-						Special attention was given to educational elements, notifications, rewards, and progress indicators to maintain long-term engagement and encourage positive saving behaviour.
+						These insights became the foundation for a mobile application that combines smartphone technology with Bluetooth Low Energy (BLE) beacons to deliver exhibit information automatically and more naturally.
 					</p>
 				</div>
 			</section>
@@ -169,13 +171,15 @@ const caseStudySchema = [
 				</div>
 				<div class="story-block">
 					<p>
-						Financial applications can quickly become overly complex, especially for younger audiences. Because of this, simplicity became the foundation of the interface.
+						Museum visits should feel immersive, not transactional. Existing solutions often require visitors to constantly interact with screens, shifting their attention away from the exhibits themselves.
+
+Instead of increasing the number of interactions, I focused on reducing them.
 					</p>
 					<p>
-						The overall visual language combines vibrant colours, rounded shapes, friendly illustrations, and clear typography to create an environment that feels approachable and enjoyable. Important information, such as balances, goals, deadlines, and recent activities, is surfaced immediately so children can understand their progress at a glance.
+						The proposed system continuously detects a visitor's location and delivers relevant information at the right moment while allowing visitors to explore freely at their own pace. A lightweight layer of personalisation was also introduced to adapt recommendations according to individual interests and behaviours.
 					</p>
 					<p>
-						Gamified elements, including achievements, rewards, notifications, and educational prompts, were introduced to reinforce learning while maintaining motivation over time.
+						The objective was to make technology feel almost invisible while preserving the human experience at the centre of the journey.
 					</p>
 				</div>
 			</section>
@@ -189,7 +193,7 @@ const caseStudySchema = [
 						{outcomes.map((item) => <li>{item}</li>)}
 					</ul>
 					<p class="closing-text">
-						This project demonstrates how thoughtful visual design can transform complex concepts into experiences that feel approachable, motivating, and memorable.
+						This project allowed me to explore the intersection of research, technology, and human-centred design while demonstrating how digital experiences can become more responsive to the people using them.
 					</p>
 				</div>
 			</section>
@@ -198,9 +202,9 @@ const caseStudySchema = [
                 href="https://www.figma.com/proto/cpH1SskQupsOjVmC5J2kv1/Final-Project?node-id=11743-7456"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="inline-block bg-white !text-black font-semibold px-8 py-4 rounded-full hover:opacity-80 transition"
+                class="inline-block bg-black !text-white font-semibold px-8 py-4 rounded-full hover:opacity-80 transition"
             >
-                View Full Case Study on Figma →
+                View full case study →
             </a>
         </div>
 		</main>
