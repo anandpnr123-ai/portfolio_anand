@@ -26,7 +26,7 @@ const visibleProjects = projects.slice(0, workPageSize);
 
 			<section class="works-list" aria-label="Project list">
 				{
-					visibleProjects.map((project) => (
+					projects.map((project, index) => (
 						<article class="work-card">
 							<div class="work-copy">
 								<p class="work-name">{project.name}</p>
@@ -40,6 +40,7 @@ const visibleProjects = projects.slice(0, workPageSize);
 									</a>
 								</div>
 							</div>
+							
 
 							<a class="work-visual" href={project.href}>
 								<Image
@@ -79,6 +80,7 @@ const visibleProjects = projects.slice(0, workPageSize);
 		</main>
 	</div>
 </Layout>
+
 
 <style>
 	.works-page {
@@ -272,3 +274,4 @@ const visibleProjects = projects.slice(0, workPageSize);
 
 	}
 </style>
+

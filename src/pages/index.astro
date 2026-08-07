@@ -3,6 +3,19 @@ import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
 import { projects } from '../data/projects';
+import etihadLogo from '../assets/logos/etihad1.webp';
+import uobLogo from '../assets/logos/uob1.png';
+import amexLogo from '../assets/logos/amex1.png';
+import enbdLogo from '../assets/logos/enbd1.png';
+import tawuniya from '../assets/logos/tawuniya.png';
+
+const clientLogos = [
+  { src: etihadLogo, alt: 'Etihad logo' },
+  { src: uobLogo, alt: 'UOB logo' },
+  { src: amexLogo, alt: 'Amex logo' },
+  { src: enbdLogo, alt: 'ENBD logo' },
+  { src: tawuniya, alt: 'tawuniya logo' },
+];
 ---
 
 <Layout
@@ -30,7 +43,7 @@ import { projects } from '../data/projects';
 			<section class="projects" id="work">
 				<div class="projects-grid">
 					{
-						projects.map((project, index) => (
+						projects.slice(0, 4).map((project, index) => (
 							<a class="project-link" href={project.href}>
 								<article class={`project-card ${project.background}`}>
 									<div class="project-header">
@@ -55,12 +68,67 @@ import { projects } from '../data/projects';
 					}
 				</div>
 			</section>
-
+<div style="text-align: center; margin: 3rem 0;">
+            <a href="/work" style="display: inline-block; background: #171717; color: #ffffff; font-weight: 600; padding: 1rem 2rem; border-radius: 999px; text-decoration: none;">
+                View all works →
+            </a>
+        </div>
+		<section class="clients">
+  <div style="max-width: 78rem; margin: 0 auto; padding: 0 1.25rem;">
+    <p class="works-eyebrow">Companies I've worked with</p>
+    <h2 style="font-size: 1.8rem; margin-bottom: 2.5rem;"></h2>
+  </div>
+  <div class="logo-marquee">
+    <div class="logo-track">
+      {clientLogos.concat(clientLogos).map((logo) => (
+        <Image src={logo.src} alt={logo.alt} class="logo-item" width={200} inferSize={true} />
+      ))}
+    </div>
+  </div>
+</section>
 		</main>
 	</div>
 </Layout>
 
 <style>
+.clients {
+  background-color: #f5f4f0;
+  padding: 4rem 0;
+  overflow: hidden;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.logo-marquee {
+  width: 100%;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+}
+
+.logo-track {
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+  width: max-content;
+  animation: scroll-left 20s linear infinite;
+}
+
+.logo-item {
+  width: auto;
+  height: 56px;
+  max-width: 260px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  flex-shrink: 0;
+}
+
+@keyframes scroll-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
 	.page {
 		position: relative;
 		width: min(calc(100% - 3rem), 78rem);
@@ -158,7 +226,7 @@ import { projects } from '../data/projects';
 		grid-template-rows: auto minmax(4.4rem, auto) 1fr;
 		gap: 1.35rem;
 		height: 100%;
-		padding: 1.5rem;
+		padding: 1.5rem 1.5rem 0 1.5rem;
 		border-radius: 1.35rem;
 		overflow: hidden;
 		transition:
@@ -177,23 +245,23 @@ import { projects } from '../data/projects';
 	}
 
 	.project-card.card1 {
-		background: #1c3121;
+		background: linear-gradient(180deg, #857454, #eee2cc);
 	}
 
 	.project-card.card2 {
-		background: #3a2424;
+		background: linear-gradient(180deg, #5C7492, #ccdbee);
 	}
 
 	.project-card.card3 {
-		background: #362f5a;
+		background: linear-gradient(180deg, #b1d678, #d3eab1);
 	}
 
 	.project-card.card4 {
-		background: #52402b;
+		background: linear-gradient(180deg, #dba74d, #efd8af);
 	}
 
 	.project-card.card5 {
-		background: #297E7E;
+		background: #ffffff;
 	}
 
 	.project-header {
