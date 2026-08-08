@@ -27,14 +27,14 @@ const visibleProjects = projects.slice(0, workPageSize);
 			<section class="works-list" aria-label="Project list">
 				{
 					projects.map((project, index) => (
-						<article class="work-card">
+						<article class={`work-card ${project.background}`}>
 							<div class="work-copy">
 								<p class="work-name">{project.name}</p>
 								<h2>{project.title}</h2>
 								<p class="work-description">{project.description}</p>
 
 								<div class="actions">
-									<a href={project.href}>
+									<a href={project.href} target="_blank" rel="noopener noreferrer">
 										<span>View case study</span>
 										<span aria-hidden="true">-&gt;</span>
 									</a>
